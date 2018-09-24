@@ -17,11 +17,11 @@ function displayGif() {
         var results = response.data;
         for (j = 0; j < results.length; j++) {
             var tvDiv = $("<div class='gif'>");
-            var rated = response.data.rating;
+            var rated = results[j].rating;
             var pOne = $("<p>").text("Rating: " + rated);
             tvDiv.append(pOne);
-            var gifStill = response.data.images.fixed_height_still;
-            var gifAnimate = response.data.images.fixed_height;
+            var gifStill = results[j].images.fixed_height_still;
+            var gifAnimate = results[j].images.fixed_height;
             var gif = $("<img>").attr({ "src": gifStill, "data-still": gifStill, "data-animate": gifAnimate, "data-state": "still" });
             tvDiv.append(gif);
             $("#gifHere").prepend(tvDiv);
@@ -43,7 +43,7 @@ function displayGif() {
 function displayButton() {
     $("#header").empty();
     for (var i = 0; i < televisionShows.length; i++) {
-        var tvButtons = $("<button class='tvButton>");
+        var tvButtons = $("<button class='tvButton'>");
         tvButtons.attr("data-name", televisionShows[i]);
         tvButtons.text(televisionShows[i]);
         $("#header").append(tvButtons);
