@@ -22,8 +22,7 @@ function displayGif() {
             tvDiv.append(pOne);
             var gifStill = results[j].images.fixed_height_still.url;
             var gifAnimate = results[j].images.fixed_height.url;
-            var gif = $("<img>").attr({ "src": gifStill, "data-still": gifStill, "data-animate": gifAnimate, "data-state": "still"});
-            gif.addClass("gifGo");
+            var gif = $("<img>").attr({ "src": gifStill, "data-still": gifStill, "data-animate": gifAnimate, "data-state": "still", "class": "gifGo"});
             tvDiv.append(gif);
             $("#gifHere").prepend(tvDiv);
             $(".gifGo").on("click", function(){
