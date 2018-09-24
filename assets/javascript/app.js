@@ -20,14 +20,15 @@ function displayGif() {
             var rated = results[j].rating;
             var pOne = $("<p>").text("Rating: " + rated);
             tvDiv.append(pOne);
-            var gifStill = results[j].images.fixed_height_still;
-            var gifAnimate = results[j].images.fixed_height;
-            var gif = $("<img>").attr({ "src": gifStill, "data-still": gifStill, "data-animate": gifAnimate, "data-state": "still" });
+            var gifStill = results[j].images.fixed_height_still.url;
+            var gifAnimate = results[j].images.fixed_height.url;
+            var gif = $("<img>").attr({ "src": gifStill, "data-still": gifStill, "data-animate": gifAnimate, "data-state": "still"});
+            gif.addClass("gifGo");
             tvDiv.append(gif);
             $("#gifHere").prepend(tvDiv);
-            $(".gif").on("click", function(){
+            $(".gifGo").on("click", function(){
                 var state = $(this).attr("data-state");
-                if (state === "still") {
+                if (state == "still") {
                     $(this).attr("src", $(this).attr("data-animate"));
                     $(this).attr("data-state", "animate");
                 } else {
